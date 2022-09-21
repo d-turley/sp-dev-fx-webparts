@@ -70,15 +70,26 @@ Version|Date|Comments
 This sample is a complete app that demonstrates the "SPFx Solution Accelerator" framework, along with patterns and practices for building enterprise-class apps on SharePoint.  Inspired by Domain Driven Design and Onion Architecture, this Accelerator has evolved since SPFx v1.0, and we want to share it with the world!
 
 At a high-level, the accelerator includes the following features:
+* Prescribed solution structure separates web parts, components, model, services, and schema (data) layers
+* Robust entity domain model with relationships, validation, change tracking, and text search
+* Robust schema provisioning and versioning; use SharePoint lists as a simple relational database
+* Services for interacting with SharePoint, timezones, domain isolation, and users and groups, plus patterns for building custom services for app-specific logic
+* Component library with customizable wizard, panel/dialog for quickly building view/edit screens, validation, and more
+* Live Update feature ensures users are always working with the latest data without manaually reloading the page
+* Built on the latest SPFx with TypeScript, React, and Fluent UI, plus PnPjs, Moment.js, Lodash, and Jest
+
+<!--
 * Prescribed [solution structure](./documentation/solution-structure.md) separates web parts, components, model, services, and schema (data) layers
 * Robust [entity domain model](./documentation/entities.md) with relationships, validation, change tracking, and text search
 * Robust [schema provisioning](./documentation/schema.md) and versioning; use SharePoint lists as a simple relational database
-* [Services](./documentation/services.md) for interacting with SharePoint, timezones, domain isolation, and users and groups, and for build custom services for app-specific logic
-* [Component library](./documentation/components.md) with customizable wizard, panel, dialog, validation, user picker, taxonomy picker, and more
+* [Services](./documentation/services.md) for interacting with SharePoint, timezones, domain isolation, and users and groups, plus patterns for building custom services for app-specific logic
+* [Component library](./documentation/components.md) with customizable wizard, panel/dialog for quickly building view/edit screens, validation, and more
 * [Live Update](./documentation/live-update.md) feature ensures users are always working with the latest data without manaually reloading the page
 * Built on the latest SPFx with TypeScript, React, and Fluent UI, plus PnPjs, Moment.js, Lodash, and Jest
 
 A deep dive into the various features of the accelerator can be found in the [documentation](./documentation/README.md) folder.
+-->
+
 
 <!--
 RESERVED FOR REPO MAINTAINERS
