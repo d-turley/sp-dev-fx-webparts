@@ -6,8 +6,13 @@ This sample is the source code for the Rhythm of Business Calendar app published
 
 Rhythm of Business (RoB) Calendar keeps you on top of your business goals by managing all team and organizational events seamlessly. Simplify and expedite the coordination and planning process for your team and subgroups with the help of color-coded events, approval workflow, refiners and confidential events.  Ideal for Chiefs of Staff, Executive Assistants, or anyone who manages a team calendar, you can empower your teams by enabling better insights on your business goals and team events.
 
+Month view
 ![Screenshot of month view](./assets/screenshot-month-view.png)
+
+View event details
 ![Screenshot of view event panel](./assets/screenshot-view-event.png)
+
+Edit refiner
 ![Screenshot of edit refiner panel](./assets/screenshot-edit-refiner.png)
 
 ## Compatibility
