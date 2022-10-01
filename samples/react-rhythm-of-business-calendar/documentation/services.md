@@ -1,17 +1,48 @@
 # Services
+The SPFx Solution accelerator includes its own services framework.  The app specifies which services it needs using descriptors (objects that describe the services), the `ServiceManager` handles creating and initializing the specified services for the specific runtime environment (modern, classic, local, or test), and a React provider using the Context API enables components to consume services.  Components indicate the specific services they need and those services are available through props or hooks.
 
-<!--
-    TODO - need to write the intro
-    
-    * overview of services framework
-    * specifying services used in app (descriptors)
--->
+Originally, there were four different runtime environments (specified by the SPFx `EnvironmentType` class), but with classic SharePoint sites/pages being all but deprecated, the local workbench being deprecated and removed, and the best approach for testing being to create a custom mock service for specific tests, there is really only a need to have a concrete service implementation for modern SharePoint Online.
+
+## Specifying services used by the app
+The app component specifies which services are needed for the entire app so that they can be created and initialized by the service manager.  This is accomplished by adding the service descriptors to an array and passing that array to the `SharePointApp` component during render.  See [src/apps/RhythmOfBusinessCalendarApp.tsx](../src/apps/RhythmOfBusinessCalendarApp.tsx).
+
+```
+import { DeveloperServiceDescriptor, DirectoryServiceDescriptor, TimeZoneServiceDescriptor, SharePointServiceDescriptor, LiveUpdateServiceDescriptor, ConfigurationServiceDescriptor, EventsServiceDescriptor } from "services";
+
+const AppServiceDescriptors = [
+    DeveloperServiceDescriptor,
+    TimeZoneServiceDescriptor,
+    DirectoryServiceDescriptor,
+    SharePointServiceDescriptor,
+    LiveUpdateServiceDescriptor,
+    ConfigurationServiceDescriptor,
+    EventsServiceDescriptor
+];
+
+class RhythmOfBusinessCalendarApp extends Component<IProps> {
+    ...
+
+    public render(): ReactElement<IProps> {
+        ...
+
+        return (
+            <SharePointApp
+                ...
+                serviceDescriptors={AppServiceDescriptors}
+                ...
+            >
+                ...
+            </SharePointApp>
+        );
+    }
+}
+```
 
 ## Consuming services
 There are different methods for accessing services depending on the context.
 
 ### Function components - React hooks
-To access the current user from the Directory Service within a React function component:
+To access the current user from the Directory Service within a React function component using hooks:
 
 ```
 import React, { FC } from 'react';
@@ -69,8 +100,11 @@ class Widget extends Component<IProps, IState> {
     }
 }
 
+// this is where the services are injected in to the component's props
 export default withServices(Widget);
 ```
+
+This same approach also works for function components as an alternative to using hooks.
 
 ### From other services
 To access the Directory Service from another service:
@@ -104,7 +138,6 @@ export const CoffeeServiceDescriptor: IServiceDescriptor<typeof CoffeeService, I
     ...
 };
 ```
-
 
 ## Common Library Services
 The [Common Library (src/common)](../src/common/) provides several ready-to-use services for building apps.

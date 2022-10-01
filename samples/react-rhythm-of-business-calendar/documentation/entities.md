@@ -22,7 +22,7 @@ SharePoint list item entities derive from the `ListItemEntity` class found in `c
 ## Defining an entity
 The essential parts of an entity are the class that derives from `Entity`, a state interface, and the constructor.
 
-Here is an example of a SharePoint list item entity representing an item in a list called Categories.  Remember that the Title field is already defined in the `ListItemEntity` base class.
+Here is an example of a SharePoint list item entity representing an item in a list called Categories.  Note that the Title field is already defined in the `ListItemEntity` base class.
 
 ```
 import { User } from 'common';
@@ -55,7 +55,7 @@ export class Category extends ListItemEntity<IState> {
 }
 ```
 
-Entity state supports all primitive types (string, number, boolean), plus Set, Map, our User class, Moment and Duration, Guid (from '@microsoft/sp-core-library'), custom objects, and arrays of any of the preceding types.
+Entity state supports all primitive types (string, number, boolean), plus Set, Map, our User class, Moment and Duration, Guid (from '@microsoft/sp-core-library'), custom objects, and arrays of any of the preceeding types.
 
 If you want store an immutable object in state [example](../src/model/EventModerationStatus.ts), make sure that the immutable class implements a clone() method that simply returns itself:
 ```
