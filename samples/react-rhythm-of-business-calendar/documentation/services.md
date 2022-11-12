@@ -192,6 +192,7 @@ The SharePoint service provides abstractions for loading and persisting entities
 The Timezone Service provides an abstraction SharePoint timezones and a mapping to their Moment.js equivalents.  This service is especially useful in applications that need to read and write date and time values to SharePoint lists.
 
 ## Defining a Custom Service
+Please refer to the [Configuration service](../src/services/configuration) and [Events service](../src/services/events) for examples of defining a custom service, including creating the descriptor file for defining the service interface, symbol, and React service prop/hook, creating the implementation file and utilizing the SharePoint service, AsyncData, PagedViewLoader, and ListItemEntity for loading and persisting data to SharePoint lists, as well as examples for implementing the track/persist pattern.
 
 <!--
     TODO

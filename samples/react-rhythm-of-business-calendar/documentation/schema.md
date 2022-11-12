@@ -1,5 +1,7 @@
 # Schema
-Schema refers to the SharePoint elements that need to be provisioned and configured on the site for the app to function and be able to securely store data, such as lists, views and columns, and even custom security groups.  The code describing the schema is located under the [/src/schema](../src/schema/) folder.
+Schema refers to the SharePoint elements that need to be provisioned and configured on the site for the app to function and be able to securely store data, such as lists, views and columns, and even custom security groups. The SPFx Solution Accelerator includes robust patterns and utilities for defining, provisioning, and upgrading the app's schema.
+
+The code describing the app's schema is located under the [/src/schema](../src/schema/) folder.
 
 During startup, the app should check that the schema has been provisioned on the current site (usually this is simply a check to determine if the Configuration list for the app exists).  If the schema has not been provisioned, then the app should display a setup screen/wizard for the user to configure any settings required to provision the application on the site.  Then the app should use the `ElementProvisioner` class to ensure the schema is provisioned on the site.
 
@@ -69,7 +71,7 @@ const View_AllRefiners: IViewDefinition = {
 The `includeStandardViewFields` utility function adds the "ID", "Title", "Author", "Editor", "Created", and "Modified" fields that are needed when loading data for a `ListItemEntity`.
 
 ## Defining a field
-A field is a column in a list and is defined by an object that implements on of the field definition-derived interfaces.  Each field type in SharePoint has a corresponding interface that enables type-safe definitions.
+A field is a column in a list and is defined by an object that implements one of the field definition-derived interfaces.  Each field type in SharePoint has a corresponding interface that enables type-safe definitions.
 
 A basic number field is defined like this:
 ```
@@ -80,7 +82,7 @@ const Field_Order: INumberFieldDefinition = {
 };
 ```
 
-The `name` of the field is the internal name of the column in SharePoint.  If you would like to have the column name appear differently when displayed to a user browsing the list, specifying the `displayName` property too.  `displayName` is optional and will use the value of `name` if not specified.  Use the `required` boolean property to specify if the field is required.  There are many other properties common to all field definitions, such as `indexed`, `hidden`, `readonly`, `hideInNewForm`, and more.
+The `name` of the field is the internal name of the column in SharePoint.  If you would like to have the column name appear differently when displayed to a user browsing the list, specify the `displayName` property too.  `displayName` is optional and will use the value of `name` if not specified.  Use the `required` boolean property to specify if the field is required.  There are many other properties common to all field definitions, such as `indexed`, `hidden`, `readonly`, `hideInNewForm`, and more.
 
 Field Type|Interface|Comments
 ---|---|---
